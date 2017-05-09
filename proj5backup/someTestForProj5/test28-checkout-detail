@@ -1,0 +1,63 @@
+-------------------- test28-checkout-detail.in --------------------
+1. # Check that we can check out a previous version.
+2. I prelude1.inc
+3. + wug.txt wug.txt
+4. > add wug.txt
+5. <<<
+6. > commit "version 1 of wug.txt"
+7. <<<
+8. + wug.txt notwug.txt
+9. > add wug.txt
+10. <<<
+11. > commit "version 2 of wug.txt"
+12. <<<
+13. = wug.txt notwug.txt
+14. # Each ${HEADER} captures its commit UID.
+15. D UID "[a-f0-9]+"
+16. D HEADER "Commit (${UID})"
+17. D DATE "\d\d\d\d-\d\d-\d\d\s+\d\d:\d\d:\d\d"
+18. > log
+19. ===
+20. ${HEADER}
+21. ${DATE}
+22. version 2 of wug.txt
+23. ===
+24. ${HEADER}
+25. ${DATE}
+26. version 1 of wug.txt
+27. ===
+28. ${HEADER}
+29. ${DATE}
+30. initial commit
+31. <<<*
+32. # UID of second version
+33. D UID2 "${1}"
+34. # UID of current version
+35. D UID1 "${2}"
+36. > checkout ${UID1} -- wug.txt
+37. <<<
+38. > status
+39. === Branches ===
+40. \*master
+41. === Staged Files ===
+42. === Removed Files ===
+43. === Modifications Not Staged For Commit ===
+44. ${ARBLINE}
+45. === Untracked Files ===
+46. <<<*
+-------------------------------------------------------------------
+-------------------- prelude1.inc --------------------
+1. # Standard commands and definitions
+2. > init
+3. <<<
+4. # A status log header RE. Captures the commit id in its sole group.
+5. D DATE "\d\d\d\d-\d\d-\d\d\s+\d\d:\d\d:\d\d"
+6. D COMMIT_HEAD "Commit ([a-f0-9]+)[ \t]*\n${DATE}"
+7. # A full log entry. Captures the entry. Assume logs messages don't contain
+8. # ===
+9. D COMMIT_LOG "(===[ ]*\nCommit [a-f0-9]+[ ]*\n${DATE}[ ]*\n(?:.|\n)*?(?=\Z|\n===))"
+10. # An arbitrary line of text (works even with ?s)
+11. D ARBLINE "[^\n]*(?=\n|\Z)"
+12. # Zero or more arbitrary full lines of text.
+13. D ARBLINES "(?:(?:.|\n)*(?:\n|\Z)|\A|\Z)"
+------------------------------------------------------

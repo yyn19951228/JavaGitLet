@@ -1,0 +1,19 @@
+A Bit Confused on Tracking vs Staged
+
+
+Question:
+Say I have wug.txt, which is unstaged and untracked, and has contents "Wug"Then I call
+
+java gitlet/Main add wug.txt
+java gitlet/Main commit "Some message"
+Then, I modify wug.txt to have the contents "Wug!"
+
+Then, without adding wug.txt again, I call
+
+java gitlet/Main commit "New message"
+Does the version of wug.txt stored/referenced by my second commit contain "Wug" or "Wug!"? 
+In other words, do I have to re-add a file every time I change it's contents, even if it's already tracked?
+
+
+Answer 1:
+You have to re-add each time.

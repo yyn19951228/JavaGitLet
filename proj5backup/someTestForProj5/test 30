@@ -1,0 +1,45 @@
+For test30, I don't understand why line 17 should return true:
+
+1. # Create two branches and switch between them
+2. I prelude1.inc
+3. > branch other
+4. <<<
+5. + f.txt wug.txt
+6. + g.txt notwug.txt
+7. > add g.txt
+8. <<<
+9. > add f.txt
+10. <<<
+11. > commit "Main two files"
+12. <<<
+13. E f.txt
+14. E g.txt
+15. > checkout other
+16. <<<
+17. * f.txt
+18. * g.txt
+
+Can someone please explain?
+
+
+Answer 1:
+* f.txt means: Assert the f.txt does not exist in the current directory.
+
+Going through the commands:
+
+After line 3, we have master and other pointing to the initial commit. Our current branch is master.
+
+*master
+   0
+ other
+After adding and committing g.txt and f.txt on the master branch:
+
+other          *master
+  0---------------1
+After checking out to other:
+
+*other         master
+   1-------------2
+Other is still pointing to the initial commit which has no files tracked.
+
+Therefore switching to it would mean that we have no files in our working directory, especially not f.txt ot g.txt.

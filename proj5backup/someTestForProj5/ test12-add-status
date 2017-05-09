@@ -1,0 +1,44 @@
+-------------------- test12-add-status.in --------------------
+1. # Status with two adds
+2. I setup1.inc
+3. > status
+4. === Branches ===
+5. *master
+6.
+7. === Staged Files ===
+8. f.txt
+9. g.txt
+10.
+11. === Removed Files ===
+12.
+13. === Modifications Not Staged For Commit ===
+14.
+15. === Untracked Files ===
+16.
+17. <<<
+--------------------------------------------------------------
+-------------------- setup1.inc --------------------
+1. # Initialize and add two files.
+2. I prelude1.inc
+3. + f.txt wug.txt
+4. + g.txt notwug.txt
+5. > add g.txt
+6. <<<
+7. > add f.txt
+8. <<<
+----------------------------------------------------
+-------------------- prelude1.inc --------------------
+1. # Standard commands and definitions
+2. > init
+3. <<<
+4. # A status log header RE. Captures the commit id in its sole group.
+5. D DATE "\d\d\d\d-\d\d-\d\d\s+\d\d:\d\d:\d\d"
+6. D COMMIT_HEAD "Commit ([a-f0-9]+)[ \t]*\n${DATE}"
+7. # A full log entry. Captures the entry. Assume logs messages don't contain
+8. # ===
+9. D COMMIT_LOG "(===[ ]*\nCommit [a-f0-9]+[ ]*\n${DATE}[ ]*\n(?:.|\n)*?(?=\Z|\n===))"
+10. # An arbitrary line of text (works even with ?s)
+11. D ARBLINE "[^\n]*(?=\n|\Z)"
+12. # Zero or more arbitrary full lines of text.
+13. D ARBLINES "(?:(?:.|\n)*(?:\n|\Z)|\A|\Z)"
+------------------------------------------------------

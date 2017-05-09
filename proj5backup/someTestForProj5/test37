@@ -1,0 +1,73 @@
+1. # Check reset command.
+ 2. I setup2.inc
+ 3. > branch other
+ 4. <<<
+ 5. + h.txt wug2.txt
+ 6. > add h.txt
+ 7. <<<
+ 8. > rm g.txt
+ 9. <<<
+10. > commit "Add h.txt and remove g.txt"
+11. <<<
+12. > checkout other
+13. <<<
+14. > rm f.txt
+15. <<<
+16. + k.txt wug3.txt
+17. > add k.txt
+18. <<<
+19. > commit "Add k.txt and remove f.txt"
+20. <<<
+21. > log
+22. ===
+23. ${COMMIT_HEAD}
+24. Add k.txt and remove f.txt
+25.
+26. ===
+27. ${COMMIT_HEAD}
+28. Two files
+29.
+30. ===
+31. ${COMMIT_HEAD}
+32. initial commit
+33.
+34. <<<*
+35. D INIT "${3}"
+36. D TWO "${2}"
+37. D OTHER1 "${1}"
+38.
+39. > checkout master
+40. <<<
+41. > log
+42. ===
+43. ${COMMIT_HEAD}
+44. Add h.txt and remove g.txt
+45.
+46. ===
+47. ${COMMIT_HEAD}
+48. Two files
+49.
+50. ===
+51. ${COMMIT_HEAD}
+52. initial commit
+53. <<<*
+54. D MASTER1 "${1}"
+55. + m.txt wug.txt
+56. > add m.txt
+57. <<<
+58. > reset ${TWO}
+59. <<<
+60. > status
+61. === Branches ===
+62. \*master
+63. other
+64.
+65. === Staged Files ===
+66.
+67. === Removed Files ===
+68.
+69. === Modifications Not Staged For Commit ===
+70.
+71. === Untracked Files ===
+72. (m\.txt\n)?\s*
+73. <<<*

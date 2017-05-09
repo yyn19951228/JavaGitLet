@@ -1,0 +1,19 @@
+Test 34 status output looks like this:
+
+> status
+=== Branches ===
+\*master
+other
+
+=== Staged Files ===
+k.txt
+
+=== Removed Files ===
+
+=== Modifications Not Staged For Commit ===
+(f\.txt \(modified\)
+)?
+
+=== Untracked Files ===
+
+<<<*

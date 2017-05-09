@@ -1,0 +1,29 @@
+[Status] Should this file be under "Modifications" and "Removed"?
+
+
+Question:
+Suppose I do the following:
+
+gitlet add test
+
+gitlet commit "testing"
+
+gitlet rm test
+
+gitlet status
+
+=== Removed Files ===
+
+test
+
+=== Modifications Not Staged For Commit ===
+
+test (deleted)
+
+Currently, test will show up under Removed and Modifications, which seems correct because Status says that files "not staged, but tracked and deleted in the working directory" are to show under Modifications, and since I used gilet rm to untrack test in the next commit (which also deleted test from the working directory), this means it should also show up under removed.
+
+Am I correct in my logic?
+
+
+Answer 1:
+It should be under removed. It should not be under "modifications not staged" as you can commit right away.

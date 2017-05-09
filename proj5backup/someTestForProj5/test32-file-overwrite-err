@@ -1,0 +1,37 @@
+-------------------- test32-file-overwrite-err.in --------------------
+1. # Make sure checkout does not overwrite files.
+2. I prelude1.inc
+3. > branch other
+4. <<<
+5. + f.txt wug.txt
+6. + g.txt notwug.txt
+7. > add g.txt
+8. <<<
+9. > add f.txt
+10. <<<
+11. > commit "Main two files"
+12. <<<
+13. E f.txt
+14. E g.txt
+15. > checkout other
+16. <<<
+17. + f.txt notwug.txt
+18. > checkout master
+19. There is an untracked file in the way; delete it or add it first.
+20. <<<
+----------------------------------------------------------------------
+-------------------- prelude1.inc --------------------
+1. # Standard commands and definitions
+2. > init
+3. <<<
+4. # A status log header RE.  Captures the commit id in its sole group.
+5. D DATE "\d\d\d\d-\d\d-\d\d\s+\d\d:\d\d:\d\d"
+6. D COMMIT_HEAD "Commit ([a-f0-9]+)[ \t]*\n${DATE}"
+7. # A full log entry.  Captures the entry. Assume logs messages don't contain
+8. # ===
+9. D COMMIT_LOG "(===[ ]*\nCommit [a-f0-9]+[ ]*\n${DATE}[ ]*\n(?:.|\n)*?(?=\Z|\n===))"
+10. # An arbitrary line of text (works even with ?s)
+11. D ARBLINE "[^\n]*(?=\n|\Z)"
+12. # Zero or more arbitrary full lines of text.
+13. D ARBLINES "(?:(?:.|\n)*(?:\n|\Z)|\A|\Z)"
+------------------------------------------------------

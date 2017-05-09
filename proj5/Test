@@ -1,0 +1,526 @@
+jug /media/sf_X/solution/s17s $ # the files we started with
+jug /media/sf_X/solution/s17s $ 
+jug /media/sf_X/solution/s17s $ more dog.txt
+dog
+jug /media/sf_X/solution/s17s $ more ketchupFriend.txt
+hello i am a ketchup friend
+jug /media/sf_X/solution/s17s $ more manyDogs.txt
+dog dog dog dog dog dog
+jug /media/sf_X/solution/s17s $ more doge.txt
+doge
+jug /media/sf_X/solution/s17s $ 
+jug /media/sf_X/solution/s17s $ 
+jug /media/sf_X/solution/s17s $ #basic stuff
+jug /media/sf_X/solution/s17s $ 
+jug /media/sf_X/solution/s17s $ rm -rf .gitlet #removes existing gitlet directory
+jug /media/sf_X/solution/s17s $ java gitlet.Main init
+Working Directory = /media/sf_X/solution/s17s
+jug /media/sf_X/solution/s17s $ java gitlet.Main log
+Working Directory = /media/sf_X/solution/s17s
+===
+Commit 59929e917b93752a9a615d54be25c2f419377730
+2017-05-02 18:17:48
+initial commit
+
+jug /media/sf_X/solution/s17s $ java gitlet.Main add dog.txt
+Working Directory = /media/sf_X/solution/s17s
+jug /media/sf_X/solution/s17s $ java gitlet.Main status
+Working Directory = /media/sf_X/solution/s17s
+=== Branches ===
+*master
+
+=== Staged Files ===
+dog.txt
+
+=== Removed Files ===
+
+=== Modifications Not Staged For Commit ===
+
+=== Untracked Files ===
+doge.txt
+ketchupFriend.txt
+manyDogs.txt
+s17s.iml
+
+jug /media/sf_X/solution/s17s $ java gitlet.Main commit "initial commit of dog.txt"
+Working Directory = /media/sf_X/solution/s17s
+jug /media/sf_X/solution/s17s $ 
+jug /media/sf_X/solution/s17s $ java gitlet.Main status
+Working Directory = /media/sf_X/solution/s17s
+=== Branches ===
+*master
+
+=== Staged Files ===
+
+=== Removed Files ===
+
+=== Modifications Not Staged For Commit ===
+
+=== Untracked Files ===
+doge.txt
+ketchupFriend.txt
+manyDogs.txt
+s17s.iml
+
+jug /media/sf_X/solution/s17s $ java gitlet.Main log
+Working Directory = /media/sf_X/solution/s17s
+===
+Commit 1dd90d21b16d486f58e2d542b0f58e344784d544
+2017-05-02 18:17:48
+initial commit of dog.txt
+
+===
+Commit 59929e917b93752a9a615d54be25c2f419377730
+2017-05-02 18:17:48
+initial commit
+
+jug /media/sf_X/solution/s17s $ 
+jug /media/sf_X/solution/s17s $ 
+jug /media/sf_X/solution/s17s $ # adding before changes (has no effect)
+jug /media/sf_X/solution/s17s $ 
+jug /media/sf_X/solution/s17s $ java gitlet.Main add dog.txt
+Working Directory = /media/sf_X/solution/s17s
+jug /media/sf_X/solution/s17s $ java gitlet.Main status
+Working Directory = /media/sf_X/solution/s17s
+=== Branches ===
+*master
+
+=== Staged Files ===
+
+=== Removed Files ===
+
+=== Modifications Not Staged For Commit ===
+
+=== Untracked Files ===
+doge.txt
+ketchupFriend.txt
+manyDogs.txt
+s17s.iml
+
+jug /media/sf_X/solution/s17s $ cp manyDogs.txt dog.txt
+jug /media/sf_X/solution/s17s $ java gitlet.Main status
+Working Directory = /media/sf_X/solution/s17s
+=== Branches ===
+*master
+
+=== Staged Files ===
+
+=== Removed Files ===
+
+=== Modifications Not Staged For Commit ===
+dog.txt (modified)
+
+=== Untracked Files ===
+doge.txt
+ketchupFriend.txt
+manyDogs.txt
+s17s.iml
+
+jug /media/sf_X/solution/s17s $ java gitlet.Main add dog.txt
+Working Directory = /media/sf_X/solution/s17s
+jug /media/sf_X/solution/s17s $ java gitlet.Main commit "replaced dog.txt with manyDogs"
+Working Directory = /media/sf_X/solution/s17s
+jug /media/sf_X/solution/s17s $ 
+jug /media/sf_X/solution/s17s $ java gitlet.Main status
+Working Directory = /media/sf_X/solution/s17s
+=== Branches ===
+*master
+
+=== Staged Files ===
+
+=== Removed Files ===
+
+=== Modifications Not Staged For Commit ===
+
+=== Untracked Files ===
+doge.txt
+ketchupFriend.txt
+manyDogs.txt
+s17s.iml
+
+jug /media/sf_X/solution/s17s $ java gitlet.Main log
+Working Directory = /media/sf_X/solution/s17s
+===
+Commit eb1a7816affc8856d93c698c680972a04b271d30
+2017-05-02 18:17:50
+replaced dog.txt with manyDogs
+
+===
+Commit 1dd90d21b16d486f58e2d542b0f58e344784d544
+2017-05-02 18:17:48
+initial commit of dog.txt
+
+===
+Commit 59929e917b93752a9a615d54be25c2f419377730
+2017-05-02 18:17:48
+initial commit
+
+jug /media/sf_X/solution/s17s $ 
+jug /media/sf_X/solution/s17s $ 
+jug /media/sf_X/solution/s17s $ # adding multiple files and committing without any changes
+jug /media/sf_X/solution/s17s $ 
+jug /media/sf_X/solution/s17s $ java gitlet.Main add manyDogs.txt
+Working Directory = /media/sf_X/solution/s17s
+jug /media/sf_X/solution/s17s $ java gitlet.Main add ketchupFriend.txt
+Working Directory = /media/sf_X/solution/s17s
+jug /media/sf_X/solution/s17s $ java gitlet.Main status
+Working Directory = /media/sf_X/solution/s17s
+=== Branches ===
+*master
+
+=== Staged Files ===
+ketchupFriend.txt
+manyDogs.txt
+
+=== Removed Files ===
+
+=== Modifications Not Staged For Commit ===
+
+=== Untracked Files ===
+doge.txt
+s17s.iml
+
+jug /media/sf_X/solution/s17s $ java gitlet.Main commit "added manyDogs and ketchupFriend"
+Working Directory = /media/sf_X/solution/s17s
+jug /media/sf_X/solution/s17s $ java gitlet.Main commit YOLO
+Working Directory = /media/sf_X/solution/s17s
+No changes added to the commit.
+jug /media/sf_X/solution/s17s $ 
+jug /media/sf_X/solution/s17s $ 
+jug /media/sf_X/solution/s17s $ # checking out an old file
+jug /media/sf_X/solution/s17s $ java gitlet.Main log
+Working Directory = /media/sf_X/solution/s17s
+===
+Commit 9c1280ed84c9ed13bdd4be6f9219f856f354635a
+2017-05-02 18:17:51
+added manyDogs and ketchupFriend
+
+===
+Commit eb1a7816affc8856d93c698c680972a04b271d30
+2017-05-02 18:17:50
+replaced dog.txt with manyDogs
+
+===
+Commit 1dd90d21b16d486f58e2d542b0f58e344784d544
+2017-05-02 18:17:48
+initial commit of dog.txt
+
+===
+Commit 59929e917b93752a9a615d54be25c2f419377730
+2017-05-02 18:17:48
+initial commit
+
+jug /media/sf_X/solution/s17s $ java gitlet.Main checkout 1dd90d21b16d486f58e2d542b0f58e344784d544 -- dog.txt  
+Working Directory = /media/sf_X/solution/s17s
+jug /media/sf_X/solution/s17s $ 
+jug /media/sf_X/solution/s17s $ more dog.txt
+dog
+jug /media/sf_X/solution/s17s $ java gitlet.Main log
+Working Directory = /media/sf_X/solution/s17s
+===
+Commit 9c1280ed84c9ed13bdd4be6f9219f856f354635a
+2017-05-02 18:17:51
+added manyDogs and ketchupFriend
+
+===
+Commit eb1a7816affc8856d93c698c680972a04b271d30
+2017-05-02 18:17:50
+replaced dog.txt with manyDogs
+
+===
+Commit 1dd90d21b16d486f58e2d542b0f58e344784d544
+2017-05-02 18:17:48
+initial commit of dog.txt
+
+===
+Commit 59929e917b93752a9a615d54be25c2f419377730
+2017-05-02 18:17:48
+initial commit
+
+jug /media/sf_X/solution/s17s $ java gitlet.Main status
+Working Directory = /media/sf_X/solution/s17s
+=== Branches ===
+*master
+
+=== Staged Files ===
+
+=== Removed Files ===
+
+=== Modifications Not Staged For Commit ===
+dog.txt (modified)
+
+=== Untracked Files ===
+doge.txt
+s17s.iml
+
+jug /media/sf_X/solution/s17s $ 
+jug /media/sf_X/solution/s17s $ # checking out newest version of a file
+jug /media/sf_X/solution/s17s $ 
+jug /media/sf_X/solution/s17s $ java gitlet.Main checkout -- dog.txt
+Working Directory = /media/sf_X/solution/s17s
+jug /media/sf_X/solution/s17s $ 
+jug /media/sf_X/solution/s17s $ more dog.txt
+dog dog dog dog dog dog
+jug /media/sf_X/solution/s17s $ java gitlet.Main log
+Working Directory = /media/sf_X/solution/s17s
+===
+Commit 9c1280ed84c9ed13bdd4be6f9219f856f354635a
+2017-05-02 18:17:51
+added manyDogs and ketchupFriend
+
+===
+Commit eb1a7816affc8856d93c698c680972a04b271d30
+2017-05-02 18:17:50
+replaced dog.txt with manyDogs
+
+===
+Commit 1dd90d21b16d486f58e2d542b0f58e344784d544
+2017-05-02 18:17:48
+initial commit of dog.txt
+
+===
+Commit 59929e917b93752a9a615d54be25c2f419377730
+2017-05-02 18:17:48
+initial commit
+
+jug /media/sf_X/solution/s17s $ java gitlet.Main status
+Working Directory = /media/sf_X/solution/s17s
+=== Branches ===
+*master
+
+=== Staged Files ===
+
+=== Removed Files ===
+
+=== Modifications Not Staged For Commit ===
+
+=== Untracked Files ===
+doge.txt
+s17s.iml
+
+jug /media/sf_X/solution/s17s $ 
+jug /media/sf_X/solution/s17s $ 
+jug /media/sf_X/solution/s17s $ 
+jug /media/sf_X/solution/s17s $ ##Tricky case changing, adding, changing again, then committing
+jug /media/sf_X/solution/s17s $ 
+jug /media/sf_X/solution/s17s $ cp ketchupFriend.txt dog.txt #change
+jug /media/sf_X/solution/s17s $ 
+jug /media/sf_X/solution/s17s $ java gitlet.Main log
+Working Directory = /media/sf_X/solution/s17s
+===
+Commit 9c1280ed84c9ed13bdd4be6f9219f856f354635a
+2017-05-02 18:17:51
+added manyDogs and ketchupFriend
+
+===
+Commit eb1a7816affc8856d93c698c680972a04b271d30
+2017-05-02 18:17:50
+replaced dog.txt with manyDogs
+
+===
+Commit 1dd90d21b16d486f58e2d542b0f58e344784d544
+2017-05-02 18:17:48
+initial commit of dog.txt
+
+===
+Commit 59929e917b93752a9a615d54be25c2f419377730
+2017-05-02 18:17:48
+initial commit
+
+jug /media/sf_X/solution/s17s $ java gitlet.Main status
+Working Directory = /media/sf_X/solution/s17s
+=== Branches ===
+*master
+
+=== Staged Files ===
+
+=== Removed Files ===
+
+=== Modifications Not Staged For Commit ===
+dog.txt (modified)
+
+=== Untracked Files ===
+doge.txt
+s17s.iml
+
+jug /media/sf_X/solution/s17s $ 
+jug /media/sf_X/solution/s17s $ java gitlet.Main add dog.txt #add
+Working Directory = /media/sf_X/solution/s17s
+jug /media/sf_X/solution/s17s $ 
+jug /media/sf_X/solution/s17s $ java gitlet.Main log
+Working Directory = /media/sf_X/solution/s17s
+===
+Commit 9c1280ed84c9ed13bdd4be6f9219f856f354635a
+2017-05-02 18:17:51
+added manyDogs and ketchupFriend
+
+===
+Commit eb1a7816affc8856d93c698c680972a04b271d30
+2017-05-02 18:17:50
+replaced dog.txt with manyDogs
+
+===
+Commit 1dd90d21b16d486f58e2d542b0f58e344784d544
+2017-05-02 18:17:48
+initial commit of dog.txt
+
+===
+Commit 59929e917b93752a9a615d54be25c2f419377730
+2017-05-02 18:17:48
+initial commit
+
+jug /media/sf_X/solution/s17s $ java gitlet.Main status
+Working Directory = /media/sf_X/solution/s17s
+=== Branches ===
+*master
+
+=== Staged Files ===
+dog.txt
+
+=== Removed Files ===
+
+=== Modifications Not Staged For Commit ===
+
+=== Untracked Files ===
+doge.txt
+s17s.iml
+
+jug /media/sf_X/solution/s17s $ 
+jug /media/sf_X/solution/s17s $ cp doge.txt dog.txt #change again
+jug /media/sf_X/solution/s17s $ 
+jug /media/sf_X/solution/s17s $ java gitlet.Main log
+Working Directory = /media/sf_X/solution/s17s
+===
+Commit 9c1280ed84c9ed13bdd4be6f9219f856f354635a
+2017-05-02 18:17:51
+added manyDogs and ketchupFriend
+
+===
+Commit eb1a7816affc8856d93c698c680972a04b271d30
+2017-05-02 18:17:50
+replaced dog.txt with manyDogs
+
+===
+Commit 1dd90d21b16d486f58e2d542b0f58e344784d544
+2017-05-02 18:17:48
+initial commit of dog.txt
+
+===
+Commit 59929e917b93752a9a615d54be25c2f419377730
+2017-05-02 18:17:48
+initial commit
+
+jug /media/sf_X/solution/s17s $ java gitlet.Main status
+Working Directory = /media/sf_X/solution/s17s
+=== Branches ===
+*master
+
+=== Staged Files ===
+dog.txt
+
+=== Removed Files ===
+
+=== Modifications Not Staged For Commit ===
+dog.txt (modified)
+
+=== Untracked Files ===
+doge.txt
+s17s.iml
+
+jug /media/sf_X/solution/s17s $ 
+jug /media/sf_X/solution/s17s $ java gitlet.Main commit "mystery commit"
+Working Directory = /media/sf_X/solution/s17s
+jug /media/sf_X/solution/s17s $ 
+jug /media/sf_X/solution/s17s $ java gitlet.Main status
+Working Directory = /media/sf_X/solution/s17s
+=== Branches ===
+*master
+
+=== Staged Files ===
+
+=== Removed Files ===
+
+=== Modifications Not Staged For Commit ===
+dog.txt (modified)
+
+=== Untracked Files ===
+doge.txt
+s17s.iml
+
+jug /media/sf_X/solution/s17s $ java gitlet.Main log
+Working Directory = /media/sf_X/solution/s17s
+===
+Commit ebe367b59653a97291650bf444f56d31c8234e32
+2017-05-02 18:18:06
+mystery commit
+
+===
+Commit 9c1280ed84c9ed13bdd4be6f9219f856f354635a
+2017-05-02 18:17:51
+added manyDogs and ketchupFriend
+
+===
+Commit eb1a7816affc8856d93c698c680972a04b271d30
+2017-05-02 18:17:50
+replaced dog.txt with manyDogs
+
+===
+Commit 1dd90d21b16d486f58e2d542b0f58e344784d544
+2017-05-02 18:17:48
+initial commit of dog.txt
+
+===
+Commit 59929e917b93752a9a615d54be25c2f419377730
+2017-05-02 18:17:48
+initial commit
+
+jug /media/sf_X/solution/s17s $ java gitlet.Main checkout ebe367b59653a97291650bf444f56d31c8234e32
+Working Directory = /media/sf_X/solution/s17s
+No such branch exists.
+jug /media/sf_X/solution/s17s $ java gitlet.Main checkout ebe367b59653a97291650bf444f56d31c8234e32 -- dog.txt
+Working Directory = /media/sf_X/solution/s17s
+jug /media/sf_X/solution/s17s $ java gitlet.Main status
+Working Directory = /media/sf_X/solution/s17s
+=== Branches ===
+*master
+
+=== Staged Files ===
+
+=== Removed Files ===
+
+=== Modifications Not Staged For Commit ===
+
+=== Untracked Files ===
+doge.txt
+s17s.iml
+
+jug /media/sf_X/solution/s17s $ java gitlet.Main log
+Working Directory = /media/sf_X/solution/s17s
+===
+Commit ebe367b59653a97291650bf444f56d31c8234e32
+2017-05-02 18:18:06
+mystery commit
+
+===
+Commit 9c1280ed84c9ed13bdd4be6f9219f856f354635a
+2017-05-02 18:17:51
+added manyDogs and ketchupFriend
+
+===
+Commit eb1a7816affc8856d93c698c680972a04b271d30
+2017-05-02 18:17:50
+replaced dog.txt with manyDogs
+
+===
+Commit 1dd90d21b16d486f58e2d542b0f58e344784d544
+2017-05-02 18:17:48
+initial commit of dog.txt
+
+===
+Commit 59929e917b93752a9a615d54be25c2f419377730
+2017-05-02 18:17:48
+initial commit
+
+jug /media/sf_X/solution/s17s $ more dog.txt
+hello i am a ketchup friend
+jug /media/sf_X/solution/s17s $ 

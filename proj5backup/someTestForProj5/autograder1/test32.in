@@ -1,0 +1,36 @@
+# Make sure checkout does not overwrite files.
+##
+# Set up one commit with two files.
+# Initialize and add two files.
+# Standard commands and definitions
+> init
+<<<
+# A status log header RE.  Captures the commit id in its sole group.
+D DATE "\d\d\d\d-\d\d-\d\d\s+\d\d:\d\d:\d\d"
+D COMMIT_HEAD "Commit ([a-f0-9]+)[ \t]*\n\d\d\d\d-\d\d-\d\d\s+\d\d:\d\d:\d\d"
+# A full log entry.  Captures the entry. Assume logs messages don't contain
+# ===
+D COMMIT_LOG "(===[ ]*\nCommit [a-f0-9]+[ ]*\n\d\d\d\d-\d\d-\d\d\s+\d\d:\d\d:\d\d[ ]*\n(?:.|\n)*?(?=\Z|\n===))"
+# An arbitrary line of text (works even with ?s)
+D ARBLINE "[^\n]*(?=\n|\Z)"
+# Zero or more arbitrary full lines of text.
+D ARBLINES "(?:(?:.|\n)*(?:\n|\Z)|\A|\Z)"
+##
+> branch other
+<<<
++ f.txt wug.txt
++ g.txt notwug.txt
+> add g.txt
+<<<
+> add f.txt
+<<<
+> commit "Main two files"
+<<<
+E f.txt
+E g.txt
+> checkout other
+<<<
++ f.txt notwug.txt
+> checkout master
+There is an untracked file in the way; delete it or add it first.
+<<<
